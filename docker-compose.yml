@@ -1,0 +1,28 @@
+version: '3'
+services:
+  hydro:
+    image: zqy123/hydro:latest
+    ports:
+      - 8080:8080
+    links:
+      - mongo
+    networks:
+      - MyNetwork
+    depends_on:
+      - mongo
+    working_dir: /root/Hydro
+    command: yarn debug --port=8080 --watch
+  mongo:
+    image: mongo:latest
+    ports:
+      - 27017:27017
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=admin
+      - MONGO_INITDB_ROOT_PASSWORD=admin
+    volumes:
+      - ./db:/data/db
+    networks:
+      - MyNetwork
+networks:
+  MyNetwork:
+    
