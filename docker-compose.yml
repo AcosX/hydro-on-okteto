@@ -24,7 +24,7 @@ services:
     networks:
       - MyNetwork
 volumes:
-  db:
+  db: ./db
 networks:
   MyNetwork:
     
