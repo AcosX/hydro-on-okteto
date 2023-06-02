@@ -12,17 +12,6 @@ services:
       - mongo
     working_dir: /root/Hydro
     command: yarn debug --port=8080 --watch
-  mongo:
-    image: mongo:latest
-    ports:
-      - 27017:27017
-    environment:
-      - MONGO_INITDB_ROOT_USERNAME=admin
-      - MONGO_INITDB_ROOT_PASSWORD=admin
-    volumes:
-      - ./db:/data/db
-    networks:
-      - MyNetwork
 networks:
   MyNetwork:
     
