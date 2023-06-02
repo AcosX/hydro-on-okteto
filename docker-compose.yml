@@ -8,8 +8,6 @@ services:
       - mongo
     networks:
       - MyNetwork
-    depends_on:
-      - mongo
     working_dir: /root/Hydro
     command: yarn debug --port=8080 --watch
 networks:
